@@ -4,6 +4,11 @@
 
 #include <iostream>
 #include <boost/filesystem.hpp>
+#include <cstdlib>
+
+auto foo(int i){
+    return i + 5;
+}
 
 int main(int argc, char *argv[]){
     std::cout << "Hello World" << std::endl;
@@ -13,5 +18,6 @@ int main(int argc, char *argv[]){
     {
         std::cout << *it++ << std::endl;
     }
+    std::cout << "foo(5) = " << foo(5) << std::endl;
     return EXIT_SUCCESS;
 }
