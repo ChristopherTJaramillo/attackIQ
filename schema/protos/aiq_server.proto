@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+service AiqTranslationServer{
+    rpc Translate(Translatable) returns (Translation) {}
+    rpc SourceLanguage(Source) returns (Language) {}
+
+}
+
+message Translatable{
+    string messageId = 1;
+    string sender = 2;
+    string fromLanguage = 3;
+    string toLanguage = 4;
+    string message = 5;
+}
+
+message Translation{
+    string messageId = 1;
+    string sourceMessageId = 2;
+    string receiver = 3;
+    string sourceMessage = 4;
+    string translatedMessage = 5;
+}
+
+message Source{
+    string messageId = 1;
+    string sender = 2;
+    string message = 3;
+}
+
+message Language{
+    string messageId = 1;
+    string sourceMessageId = 2;
+    string receiver = 3;
+    string sourceLanguage = 4;
+}
