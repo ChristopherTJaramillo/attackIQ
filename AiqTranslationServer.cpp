@@ -4,21 +4,34 @@
 
 #include "AiqTranslationServer.h"
 
+#include <sstream>
+
 #include <grpc/grpc.h>
 #include <grpcpp/server.h>
 
+#include "AiqCurlWrapper.h"
 
+AIQ::AiqTranslationServerImpl::AiqTranslationServerImpl()
+{
+    AIQ::AiqCurlWrapper::instance().init();
+}
 
 grpc::Status
 AIQ::AiqTranslationServerImpl::Translate(grpc::ServerContext *context,
                                      const Translatable *aTranslatable,
                                      Translation *aTranslation)
 {
+    std::string readBuffer;
+    std::stringstream ss;
+    ss << "https://translation.googleapis.com/language/translate/v2?target=es&key=";
+//    ss << aTranslatable->key()
+    ss << "&q=" << aTranslatable->message();
+    AIQ::AiqCurlWrapper::instance().post(ss.str(), "", readBuffer);
     aTranslation->set_messageid("1");
     aTranslation->set_sourcemessageid(aTranslatable->messageid());
     aTranslation->set_receiver("3");
     aTranslation->set_sourcemessage(aTranslatable->message());
-    aTranslation->set_translatedmessage("4");
+    aTranslation->set_translatedmessage(readBuffer);
     return grpc::Status::OK;
 }
 

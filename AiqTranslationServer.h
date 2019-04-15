@@ -12,7 +12,7 @@
 namespace AIQ {
 class AiqTranslationServerImpl final : public AiqTranslationServer::Service {
     public:
-    AiqTranslationServerImpl() = default;
+	AiqTranslationServerImpl();
 
         grpc::Status Translate(grpc::ServerContext *,
                                const Translatable *,
