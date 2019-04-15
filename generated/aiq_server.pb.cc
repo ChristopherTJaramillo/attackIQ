@@ -116,6 +116,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Translatable, fromlanguage_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Translatable, tolanguage_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Translatable, message_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Translatable, apikey_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::Translation, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -146,9 +147,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::Translatable)},
-  { 10, -1, sizeof(::Translation)},
-  { 20, -1, sizeof(::Source)},
-  { 28, -1, sizeof(::Language)},
+  { 11, -1, sizeof(::Translation)},
+  { 21, -1, sizeof(::Source)},
+  { 29, -1, sizeof(::Language)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -179,23 +180,23 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\020aiq_server.proto\"l\n\014Translatable\022\021\n\tme"
+      "\n\020aiq_server.proto\"|\n\014Translatable\022\021\n\tme"
       "ssageId\030\001 \001(\t\022\016\n\006sender\030\002 \001(\t\022\024\n\014fromLan"
       "guage\030\003 \001(\t\022\022\n\ntoLanguage\030\004 \001(\t\022\017\n\007messa"
-      "ge\030\005 \001(\t\"}\n\013Translation\022\021\n\tmessageId\030\001 \001"
-      "(\t\022\027\n\017sourceMessageId\030\002 \001(\t\022\020\n\010receiver\030"
-      "\003 \001(\t\022\025\n\rsourceMessage\030\004 \001(\t\022\031\n\021translat"
-      "edMessage\030\005 \001(\t\"<\n\006Source\022\021\n\tmessageId\030\001"
-      " \001(\t\022\016\n\006sender\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\"`\n"
-      "\010Language\022\021\n\tmessageId\030\001 \001(\t\022\027\n\017sourceMe"
-      "ssageId\030\002 \001(\t\022\020\n\010receiver\030\003 \001(\t\022\026\n\016sourc"
-      "eLanguage\030\004 \001(\t2j\n\024AiqTranslationServer\022"
-      "*\n\tTranslate\022\r.Translatable\032\014.Translatio"
-      "n\"\000\022&\n\016SourceLanguage\022\007.Source\032\t.Languag"
-      "e\"\000b\006proto3"
+      "ge\030\005 \001(\t\022\016\n\006apiKey\030\006 \001(\t\"}\n\013Translation\022"
+      "\021\n\tmessageId\030\001 \001(\t\022\027\n\017sourceMessageId\030\002 "
+      "\001(\t\022\020\n\010receiver\030\003 \001(\t\022\025\n\rsourceMessage\030\004"
+      " \001(\t\022\031\n\021translatedMessage\030\005 \001(\t\"<\n\006Sourc"
+      "e\022\021\n\tmessageId\030\001 \001(\t\022\016\n\006sender\030\002 \001(\t\022\017\n\007"
+      "message\030\003 \001(\t\"`\n\010Language\022\021\n\tmessageId\030\001"
+      " \001(\t\022\027\n\017sourceMessageId\030\002 \001(\t\022\020\n\010receive"
+      "r\030\003 \001(\t\022\026\n\016sourceLanguage\030\004 \001(\t2j\n\024AiqTr"
+      "anslationServer\022*\n\tTranslate\022\r.Translata"
+      "ble\032\014.Translation\"\000\022&\n\016SourceLanguage\022\007."
+      "Source\032\t.Language\"\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 531);
+      descriptor, 547);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "aiq_server.proto", &protobuf_RegisterTypes);
 }
@@ -222,6 +223,7 @@ const int Translatable::kSenderFieldNumber;
 const int Translatable::kFromLanguageFieldNumber;
 const int Translatable::kToLanguageFieldNumber;
 const int Translatable::kMessageFieldNumber;
+const int Translatable::kApiKeyFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Translatable::Translatable()
@@ -255,6 +257,10 @@ Translatable::Translatable(const Translatable& from)
   if (from.message().size() > 0) {
     message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
   }
+  apikey_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.apikey().size() > 0) {
+    apikey_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.apikey_);
+  }
   // @@protoc_insertion_point(copy_constructor:Translatable)
 }
 
@@ -264,6 +270,7 @@ void Translatable::SharedCtor() {
   fromlanguage_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   tolanguage_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  apikey_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 Translatable::~Translatable() {
@@ -277,6 +284,7 @@ void Translatable::SharedDtor() {
   fromlanguage_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   tolanguage_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  apikey_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void Translatable::SetCachedSize(int size) const {
@@ -304,6 +312,7 @@ void Translatable::Clear() {
   fromlanguage_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   tolanguage_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  apikey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -397,6 +406,22 @@ bool Translatable::MergePartialFromCodedStream(
         break;
       }
 
+      // string apiKey = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_apikey()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->apikey().data(), static_cast<int>(this->apikey().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "Translatable.apiKey"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -473,6 +498,16 @@ void Translatable::SerializeWithCachedSizes(
       5, this->message(), output);
   }
 
+  // string apiKey = 6;
+  if (this->apikey().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->apikey().data(), static_cast<int>(this->apikey().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "Translatable.apiKey");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->apikey(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -542,6 +577,17 @@ void Translatable::SerializeWithCachedSizes(
         5, this->message(), target);
   }
 
+  // string apiKey = 6;
+  if (this->apikey().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->apikey().data(), static_cast<int>(this->apikey().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "Translatable.apiKey");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->apikey(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -594,6 +640,13 @@ size_t Translatable::ByteSizeLong() const {
         this->message());
   }
 
+  // string apiKey = 6;
+  if (this->apikey().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->apikey());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -641,6 +694,10 @@ void Translatable::MergeFrom(const Translatable& from) {
 
     message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.message_);
   }
+  if (from.apikey().size() > 0) {
+
+    apikey_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.apikey_);
+  }
 }
 
 void Translatable::CopyFrom(const ::google::protobuf::Message& from) {
@@ -676,6 +733,8 @@ void Translatable::InternalSwap(Translatable* other) {
   tolanguage_.Swap(&other->tolanguage_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   message_.Swap(&other->message_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  apikey_.Swap(&other->apikey_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }

@@ -225,6 +225,20 @@ class Translatable : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_message();
   void set_allocated_message(::std::string* message);
 
+  // string apiKey = 6;
+  void clear_apikey();
+  static const int kApiKeyFieldNumber = 6;
+  const ::std::string& apikey() const;
+  void set_apikey(const ::std::string& value);
+  #if LANG_CXX11
+  void set_apikey(::std::string&& value);
+  #endif
+  void set_apikey(const char* value);
+  void set_apikey(const char* value, size_t size);
+  ::std::string* mutable_apikey();
+  ::std::string* release_apikey();
+  void set_allocated_apikey(::std::string* apikey);
+
   // @@protoc_insertion_point(class_scope:Translatable)
  private:
 
@@ -234,6 +248,7 @@ class Translatable : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::google::protobuf::internal::ArenaStringPtr fromlanguage_;
   ::google::protobuf::internal::ArenaStringPtr tolanguage_;
   ::google::protobuf::internal::ArenaStringPtr message_;
+  ::google::protobuf::internal::ArenaStringPtr apikey_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_aiq_5fserver_2eproto::TableStruct;
 };
@@ -979,6 +994,59 @@ inline void Translatable::set_allocated_message(::std::string* message) {
   }
   message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), message);
   // @@protoc_insertion_point(field_set_allocated:Translatable.message)
+}
+
+// string apiKey = 6;
+inline void Translatable::clear_apikey() {
+  apikey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Translatable::apikey() const {
+  // @@protoc_insertion_point(field_get:Translatable.apiKey)
+  return apikey_.GetNoArena();
+}
+inline void Translatable::set_apikey(const ::std::string& value) {
+  
+  apikey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:Translatable.apiKey)
+}
+#if LANG_CXX11
+inline void Translatable::set_apikey(::std::string&& value) {
+  
+  apikey_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:Translatable.apiKey)
+}
+#endif
+inline void Translatable::set_apikey(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  apikey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:Translatable.apiKey)
+}
+inline void Translatable::set_apikey(const char* value, size_t size) {
+  
+  apikey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:Translatable.apiKey)
+}
+inline ::std::string* Translatable::mutable_apikey() {
+  
+  // @@protoc_insertion_point(field_mutable:Translatable.apiKey)
+  return apikey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Translatable::release_apikey() {
+  // @@protoc_insertion_point(field_release:Translatable.apiKey)
+  
+  return apikey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Translatable::set_allocated_apikey(::std::string* apikey) {
+  if (apikey != NULL) {
+    
+  } else {
+    
+  }
+  apikey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), apikey);
+  // @@protoc_insertion_point(field_set_allocated:Translatable.apiKey)
 }
 
 // -------------------------------------------------------------------

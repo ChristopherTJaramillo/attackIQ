@@ -12,6 +12,7 @@ message Translatable{
     string fromLanguage = 3;
     string toLanguage = 4;
     string message = 5;
+    string apiKey = 6;
 }
 
 message Translation{

@@ -24,7 +24,7 @@ AIQ::AiqTranslationServerImpl::Translate(grpc::ServerContext *context,
     std::string readBuffer;
     std::stringstream ss;
     ss << "https://translation.googleapis.com/language/translate/v2?target=es&key=";
-//    ss << aTranslatable->key()
+    ss << aTranslatable->apikey();
     ss << "&q=" << aTranslatable->message();
     AIQ::AiqCurlWrapper::instance().post(ss.str(), "", readBuffer);
     aTranslation->set_messageid("1");
