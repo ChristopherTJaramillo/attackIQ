@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x10\x61iq_server.proto\"y\n\x0cTranslatable\x12\x11\n\tmessageId\x18\x01 \x01(\t\x12\x0e\n\x06sender\x18\x02 \x01(\t\x12\x14\n\x0c\x66romLanguage\x18\x03 \x01(\t\x12\x12\n\ntoLanguage\x18\x04 \x01(\t\x12\x0f\n\x07message\x18\x05 \x01(\t\x12\x0b\n\x03key\x18\x06 \x01(\t\"}\n\x0bTranslation\x12\x11\n\tmessageId\x18\x01 \x01(\t\x12\x17\n\x0fsourceMessageId\x18\x02 \x01(\t\x12\x10\n\x08receiver\x18\x03 \x01(\t\x12\x15\n\rsourceMessage\x18\x04 \x01(\t\x12\x19\n\x11translatedMessage\x18\x05 \x01(\t\"<\n\x06Source\x12\x11\n\tmessageId\x18\x01 \x01(\t\x12\x0e\n\x06sender\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\"`\n\x08Language\x12\x11\n\tmessageId\x18\x01 \x01(\t\x12\x17\n\x0fsourceMessageId\x18\x02 \x01(\t\x12\x10\n\x08receiver\x18\x03 \x01(\t\x12\x16\n\x0esourceLanguage\x18\x04 \x01(\t2j\n\x14\x41iqTranslationServer\x12*\n\tTranslate\x12\r.Translatable\x1a\x0c.Translation\"\x00\x12&\n\x0eSourceLanguage\x12\x07.Source\x1a\t.Language\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x10\x61iq_server.proto\"|\n\x0cTranslatable\x12\x11\n\tmessageId\x18\x01 \x01(\t\x12\x0e\n\x06sender\x18\x02 \x01(\t\x12\x14\n\x0c\x66romLanguage\x18\x03 \x01(\t\x12\x12\n\ntoLanguage\x18\x04 \x01(\t\x12\x0f\n\x07message\x18\x05 \x01(\t\x12\x0e\n\x06\x61piKey\x18\x06 \x01(\t\"}\n\x0bTranslation\x12\x11\n\tmessageId\x18\x01 \x01(\t\x12\x17\n\x0fsourceMessageId\x18\x02 \x01(\t\x12\x10\n\x08receiver\x18\x03 \x01(\t\x12\x15\n\rsourceMessage\x18\x04 \x01(\t\x12\x19\n\x11translatedMessage\x18\x05 \x01(\t\"<\n\x06Source\x12\x11\n\tmessageId\x18\x01 \x01(\t\x12\x0e\n\x06sender\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\"`\n\x08Language\x12\x11\n\tmessageId\x18\x01 \x01(\t\x12\x17\n\x0fsourceMessageId\x18\x02 \x01(\t\x12\x10\n\x08receiver\x18\x03 \x01(\t\x12\x16\n\x0esourceLanguage\x18\x04 \x01(\t2j\n\x14\x41iqTranslationServer\x12*\n\tTranslate\x12\r.Translatable\x1a\x0c.Translation\"\x00\x12&\n\x0eSourceLanguage\x12\x07.Source\x1a\t.Language\"\x00\x62\x06proto3')
 )
 
 
@@ -68,7 +68,7 @@ _TRANSLATABLE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='key', full_name='Translatable.key', index=5,
+      name='apiKey', full_name='Translatable.apiKey', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -87,7 +87,7 @@ _TRANSLATABLE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=20,
-  serialized_end=141,
+  serialized_end=144,
 )
 
 
@@ -145,8 +145,8 @@ _TRANSLATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=143,
-  serialized_end=268,
+  serialized_start=146,
+  serialized_end=271,
 )
 
 
@@ -190,8 +190,8 @@ _SOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=270,
-  serialized_end=330,
+  serialized_start=273,
+  serialized_end=333,
 )
 
 
@@ -242,8 +242,8 @@ _LANGUAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=332,
-  serialized_end=428,
+  serialized_start=335,
+  serialized_end=431,
 )
 
 DESCRIPTOR.message_types_by_name['Translatable'] = _TRANSLATABLE
@@ -288,8 +288,8 @@ _AIQTRANSLATIONSERVER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=430,
-  serialized_end=536,
+  serialized_start=433,
+  serialized_end=539,
   methods=[
   _descriptor.MethodDescriptor(
     name='Translate',
