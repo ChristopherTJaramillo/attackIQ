@@ -2,7 +2,8 @@
 Repository to hold code specific to AttackIQ code sample
 
 ## What is it?
-I've put together a server using grpc/protobuf that accepts a request and translates that request to spanish.
+I've put together a server using grpc/protobuf that accepts a 
+string of english as a request and translates that request to spanish.
 
 ## Dependencies
 cmake  
