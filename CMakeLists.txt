@@ -1,17 +1,20 @@
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
+# Project setup
 project(attackIQ LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Package Setup
 find_package(Boost 1.54 REQUIRED COMPONENTS filesystem)
 find_package(CURL REQUIRED)
 
 link_directories("$ENV{GRPC_HOME}/libs/opt")
 link_directories("$ENV{GRPC_HOME}/libs/opt/protobuf")
 
+# LIBRARY: aiq-curl-wrapper
 add_library(aiq-curl-wrapper
         SHARED
         AiqCurlWrapper.h
@@ -20,6 +23,7 @@ target_link_libraries(aiq-curl-wrapper
         PUBLIC
         curl)
 
+# LIBRARY: aiq-grpc
 add_library(aiq-grpc
         SHARED
         generated/aiq_server.grpc.pb.h
@@ -31,19 +35,16 @@ target_link_libraries(aiq-grpc
         protobuf
         grpc++
         grpc++_reflection)
-
 target_include_directories(aiq-grpc PRIVATE "$ENV{GRPC_HOME}/include")
 target_include_directories(aiq-grpc PRIVATE "$ENV{GRPC_HOME}/third_party/protobuf/src")
 
-
+# LIBRARY: aiq-translation-server
 add_library(aiq-translation-server
         SHARED
         AiqTranslationServer.h
         AiqTranslationServer.cpp)
-
 target_include_directories(aiq-translation-server PRIVATE "$ENV{GRPC_HOME}/include")
 target_include_directories(aiq-translation-server PRIVATE "$ENV{GRPC_HOME}/third_party/protobuf/src")
-
 
 target_link_libraries(aiq-translation-server
         PUBLIC
@@ -54,6 +55,7 @@ target_link_libraries(aiq-translation-server
         grpc++_reflection
         dl)
 
+# Executable: attackIQ
 add_executable(attackIQ main.cpp)
 
 target_include_directories(attackIQ PRIVATE "$ENV{GRPC_HOME}/include")
