@@ -9,6 +9,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_package(Boost 1.54 REQUIRED COMPONENTS filesystem)
 find_package(CURL REQUIRED)
 
+link_directories("$ENV{GRPC_HOME}/libs/opt")
+link_directories("$ENV{GRPC_HOME}/libs/opt/protobuf")
+
 add_library(aiq-curl-wrapper
         SHARED
         AiqCurlWrapper.h
@@ -23,12 +26,15 @@ add_library(aiq-grpc
         generated/aiq_server.grpc.pb.cc
         generated/aiq_server.pb.h
         generated/aiq_server.pb.cc)
+target_link_libraries(aiq-grpc
+        PUBLIC
+        protobuf
+        grpc++
+        grpc++_reflection)
 
 target_include_directories(aiq-grpc PRIVATE "$ENV{GRPC_HOME}/include")
 target_include_directories(aiq-grpc PRIVATE "$ENV{GRPC_HOME}/third_party/protobuf/src")
 
-link_directories("$ENV{GRPC_HOME}/libs/opt")
-link_directories("$ENV{GRPC_HOME}/libs/opt/protobuf")
 
 add_library(aiq-translation-server
         SHARED
